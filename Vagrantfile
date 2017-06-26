@@ -64,7 +64,8 @@ Vagrant.configure("2") do |config|
 #	chmod +x /opt/jenkins/jnk-stup.sh
 #	chown -R jenkins:jenkins /opt/jenkins/
 	cd /etc/systemd/system
-        wget https://raw.githubusercontent.com/untiro/vagrant/master/jenkins.service -a /var/log/wget.log
+        sed -i 's/\/home\/vagrant/\/opt\/jenkins\/master/' /etc/passwd
+	wget https://raw.githubusercontent.com/untiro/vagrant/master/jenkins.service -a /var/log/wget.log
 	systemctl daemon-reload
 	systemctl enable jenkins.service
 	systemctl start jenkins.service
