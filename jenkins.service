@@ -7,7 +7,7 @@ After=network-online.target
 Type=simple
 
 ExecStart=/usr/bin/java -jar /opt/jenkins/bin/jenkins.war
-User=jenkins 
+User=vagrant 
 
 [Install]
 WantedBy=multi-user.target
